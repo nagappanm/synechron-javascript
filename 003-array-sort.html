@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<title>Document</title>
+	<script>
+	/*
+	 * 
+	 */
+		var arr = [1, "hello", ["a","b","c"],{
+			fname : "Bruce",
+			lname : "Wayne"
+		}];
+	  window.onload = function(){
+	  	document.getElementById('log').innerHTML = arr[2][0];
+	  };
+	</script>
+</head>
+<body>
+	<h1 id="log"></h1>
+</body>
+</html>

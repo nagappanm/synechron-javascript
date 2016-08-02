@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<title>Document</title>
+	<script>
+	/*
+	 * var arr = new Array();
+	 * var arr = new Array(5);
+	 * var arr = [];
+	 */
+	  var arr = new Array(5);
+	  console.log(arr.length);
+	  // index out of bounds;
+	  arr[0] = "Batman";
+	  arr[1] = "Superman";
+	  arr[2] = "Ironman";
+	  arr[3] = "Spiderman";
+	  arr[4] = "Phantom";
+	  arr[10] = "Heman";
+	  console.log(arr.length);
+	 
+	  window.onload = function(){
+	  	document.getElementById('log').innerHTML = arr;
+	  };
+	</script>
+</head>
+<body>
+	<h1 id="log"></h1>
+</body>
+</html>
