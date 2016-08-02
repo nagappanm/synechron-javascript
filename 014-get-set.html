@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<title>JavaScript</title>
+	<script>
+		var Hero = Object.create(null);
+			Object.defineProperties(Hero,{
+				"fname" : {
+					value : "Bruce"
+				},
+				"lname" : {
+					value : "Wayne"
+				},
+				"city" : {
+					value : "Gotham"
+				},
+				"fullname" : {
+					value : function(){
+						return this.fname+" "+this.lname
+					}
+				},
+				"power" : {
+					value : 7,
+					writable : true
+				}
+			});
+			Object.defineProperty(Hero,"setPower",{
+				set : function(val){
+					this.power = val;
+				}
+			});
+			Object.defineProperty(Hero,"getPower",{
+				get : function(){
+					return this.power;
+				}
+			});
+			/*
+			console.log(Hero.fname);
+			console.log(Hero.fullname());
+			console.log(Hero.power);
+			console.log(Hero.changePower);
+			Hero.changePower = 9;
+			console.log(Hero.changePower);
+			 */
+			console.log(Hero.getPower);
+			Hero.setPower = 10;
+			console.log(Hero.getPower);
+
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

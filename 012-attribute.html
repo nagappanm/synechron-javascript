@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<title>Document</title>
+	<style>
+		.box{
+			background-color: #333;
+			padding: 10px;
+		}
+		.box:after{
+			content : "";
+			display: block;
+			clear: left;
+		}
+		.box div{
+			width: 50px;
+			height: 50px;
+			margin: 5px;
+			float: left;
+			line-height: 50px;
+			text-align: center;
+			vertical-align: middle;
+			font-family: Arial;
+			font-weight: bold;
+		}
+	</style>
+	<script>
+	/*
+		function init(){
+			alert("body onload");
+		};
+		window.onload = function(){
+			alert("window onload");
+		};
+		window.addEventListener("load", function(){
+			alert("window load with add event listener");
+		});
+		document.addEventListener("DOMContentLoaded", function(){
+			alert("dom content loaded");
+		});
+	 */
+		var count = 1;
+		document.addEventListener("DOMContentLoaded", function(){
+			document.querySelector(".box").addEventListener("click", boxClickHandler)
+			document.querySelector("#addBtn").addEventListener("click", addHandler)
+			document.querySelector("#removeBtn").addEventListener("click", removeHandler)
+		});
+		function addHandler(){
+			var elm = document.createElement("div");
+				elm.innerHTML = count++;
+				var r = Math.round(Math.random()*255);
+				var b = Math.round(Math.random()*255);
+				var g = Math.round(Math.random()*255);
+				elm.setAttribute("style","background-color : rgb("+r+","+g+","+b+")")
+			document.querySelector(".box").appendChild(elm);
+		}
+		function removeHandler(){
+			var box = document.querySelector(".box");
+			if(box.children.length > 0){
+				var elm = box.firstChild;
+				box.removeChild(elm);
+			}
+		}
+		function boxClickHandler(event){
+			/*
+			 * event.target
+			 * event.type
+			 * event.currentTarget
+			 */
+			console.log(event.target.getAttribute("style"))
+			document.querySelector(".box").removeChild(event.target);
+			
+		}
+	</script>
+</head>
+<!--body onload="init()"-->
+<body>
+	<button id="addBtn">Add Box</button>
+	<button id="removeBtn">Remove Box</button>
+	<hr/>
+	<div class="box"></div>
+</body>
+</html>

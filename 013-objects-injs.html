@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<title>Objects</title>
+	<script>
+	/*
+	 * variables are passed as values;
+	 * objects are passed as references;
+	 */
+
+	/*
+		var obj = {
+			"fname" : "Bruce",
+			"lname" : "Wayne",
+			"title" : "Batman",
+			"full name" : "Bruce Wayne",
+			"power" : 7
+		};
+		console.log(obj.fname);
+		console.log(obj.lname);
+		console.log(obj["full name"]);
+		var hero = obj;
+	 */
+	
+	/*
+	 var bgcolor = "red";
+	 var anothercolor = bgcolor;
+	 console.log(bgcolor);
+	 console.log(anothercolor);
+	 anothercolor = "green"
+	 console.log(anothercolor);
+	 console.log(bgcolor);
+	 */
+	
+	/*
+	var obj1 = {
+		uname : "Batman"
+	};
+	var obj2 = obj1;
+	console.log(obj1.uname);
+	console.log(obj2.uname);
+	obj2.uname = "Joker";
+	console.log(obj2.uname);
+	console.log(obj1.uname);
+	 */
+
+	/*
+	var obj1 = {
+		uname : "Batman"
+	};
+	obj1.uname = "Joker";
+	console.log(obj1.uname); // joker;
+	 */
+	/*
+	 * value, configurable, writable, enumerable, set, get
+	 */
+	var obj1 = Object.create(null);
+		Object.defineProperty(obj1,"uname",{
+			value : "Batman",
+			writable : true,
+			enumerable : false,
+			configurable : true
+		});
+		Object.defineProperty(obj1,"uname",{
+			value : "Superman",
+			writable : false,
+			enumerable : false,
+			configurable : false
+		});
+		Object.defineProperty(obj1,"uname",{
+			value : "Spiderman"
+		});
+		
+		Object.defineProperty(obj1,"pubname",{
+			value : "Bruce Wayne",
+			writable : true,
+			enumerable : true
+		});
+	//console.log(obj1.uname);
+	//obj1.uname = "Joker";
+	//console.log(obj1.uname);
+	
+	for(prop in obj1){
+		console.log(prop);
+		console.log(obj1[prop]);
+		console.log("=========================");
+	};
+	console.log(obj1);
+	window.onload = function(){
+		document.getElementsByTagName("body")[0].innerHTML = JSON.stringify(obj1);
+	};
+	</script>
+</head>
+<body>
+	
+</body>
+</html>
