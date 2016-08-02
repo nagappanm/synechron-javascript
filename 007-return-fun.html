@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<title>Document</title>
+	<script>
+		function myFun(){
+			return function(){
+				return function(){
+					console.log("hello from deep nested function");
+				}
+			};
+		};
+		/*
+		var newfun = myFun();
+		var anothervar = newfun();
+			anothervar();
+		 */
+		myFun()()();
+	</script>
+</head>
+<body>
+</body>
+</html>

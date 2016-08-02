@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<title>Document</title>
+	<script>
+		function nagappan(){
+			console.log("hi nag");
+		};
+		
+		var arr = [1,"2", fun = function(){
+			console.log("did you click me")
+		},nagappan];
+		
+		window.onload = function(){
+			document.getElementById("btn").addEventListener("click", arr[2]);
+		};
+		arr[3]();
+	</script>
+</head>
+<body>
+	<button id="btn">click</button>
+</body>
+</html>

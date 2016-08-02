@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<title>Document</title>
+	<script>
+	/*
+		function myFun(){
+			alert("you clicked me");
+		};
+		window.addEventListener("load", function(){
+			// document.getElementById("btn").onclick = myFun;
+			// document.getElementById("btn").attachEvent("onclick", myFun);
+			
+			document.getElementById("btn").addEventListener("click",myFun);
+		})
+	 */
+	
+	function myFun(user){
+		return "Hi "+user;
+	};
+	function mainFun(fun){
+		var user1 = "Batman";
+		var user2 = "Joker";
+		var win =  false;
+		
+		if(win){
+			console.log(fun(user1));
+		}else{
+			console.log(fun(user2));
+		}
+	};
+	mainFun(myFun);
+	
+	</script>
+</head>
+<body>
+	<!--button id="btn">Click Me</button-->
+</body>
+</html>

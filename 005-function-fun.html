@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<title>Function Fun</title>
+	<script>
+	/*
+		function myFun(){
+			console.log(arguments[0]+"| "+arguments[1]);
+		};
+		// console.log(myFun.name);
+		// myFun();
+		// myFun.call();
+		// myFun.apply();
+		// myFun.bind()();
+		
+		// myFun("hello there","Synechron");
+		// myFun.call(this,"hello there","Synechron");
+		// myFun.apply(this,["hello there","Synechron"]);
+		// myFun.bind(this)("hello there","Synechron");
+	 */
+		
+		var hero1 = {
+			fname:"Bruce",
+			lname:"Wayne"
+		}
+	
+		var hero2 = {
+			fname:"Clark",
+			lname:"Kent"
+		}
+		
+		var obj = {
+			fname : "Rajani",
+			lname : "Kanth",
+			myFun : function(){
+				var msg = arguments[0] || "Hi";
+				
+				//this.fname = "Default First Name";
+				//this.lname = "Default Last Name";
+				console.log(msg+" "+this.fname+" | "+this.lname);
+			}
+		};
+		
+		// obj.myFun();
+		/*
+		obj.myFun.call(obj);
+		obj.myFun.call(hero1);
+		obj.myFun.call(hero2);
+		 */
+
+		/*
+		obj.myFun.call(obj,"Hi");
+		obj.myFun.call(hero1,"Hello");
+		obj.myFun.call(hero2,"Howdy");
+		 */
+		
+		/*
+		obj.myFun.apply(obj,["Hi"]);
+		 */
+		
+		/*
+		obj.myFun.bind(obj)("Hello");
+		 */
+		
+	</script>
+</head>
+<body>
+	
+</body>
+</html>
