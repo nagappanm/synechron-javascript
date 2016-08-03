@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<title>Document</title>
+	<!--script src="lib/jquery-3.1.0.js"></script-->
+	
+	<script>
+		var User = function(arg){
+			this.name = arg
+		};
+		var Pet = function(arg){
+			this.name = arg
+		};
+		//------------------------------------------------
+		var moving = {
+			walk : function(){
+				return this.name +" is walking"
+			},
+			run : function(){
+				return this.name +" is running"
+			},
+			jump : function(){
+				return this.name +" is jumping"
+			}
+		};
+		//------------------------------------------------
+		var talking = {
+			talk : function(){
+				return this.name +" is talking"
+			}
+		};
+		//------------------------------------------------
+		var coding = {
+			javascript : function(){
+				return this.name +" knows javascript"
+			},
+			html : function(){
+				return this.name +" knows html"
+			},
+			css : function(){
+				return this.name +" knows css"
+			}
+		}
+		// $.extend(User.prototype, moving, talking, coding);
+		// $.extend(Pet.prototype, moving, talking);
+		function extend(){
+			for(var i = 1; i < arguments.length; i++){
+				// console.log(i);
+				for(var prop in arguments[i]){
+					// console.log(arguments[i][prop]());
+					arguments[0][prop] = arguments[i][prop];
+				}
+			}
+		};
+		extend(User.prototype, moving, talking, coding);
+		extend(Pet.prototype, moving, talking);
+		
+		//------------------------------------------------
+		/*
+		 */
+		var hero1 = new User("Batman");
+		var tommy = new Pet("Tommy");
+			console.log(hero1.name);
+			console.log(hero1.walk());
+			console.log(hero1.talk());
+			console.log(hero1.javascript());
+			
+			console.log(tommy.name);
+			console.log(tommy.walk());
+			console.log(tommy.talk());
+		//	console.log(tommy.css()); // error
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

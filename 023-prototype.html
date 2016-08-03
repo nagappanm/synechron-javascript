@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<title>Document</title>
+	<style>
+		.box{
+			width: 600px;
+			height: 400px;
+			margin: auto;
+			background-color: #333;
+		}
+		.box div{
+			width: 50px;
+			height: 50px;
+			background-color: orange;
+			float: left;
+			margin: 5px;
+		}
+	</style>
+	<script>
+	/*
+	var arr = [100,200,300,600,400];
+	// console.log(arr.toString());
+	Array.prototype.toInr = function(){
+		var val = [];
+		for(var i = 0 ; i < this.length; i++){
+			val.push("INR "+this[i]);
+		}
+		return val
+	};
+	console.log( arr.toInr());
+	 */
+	
+	//==============================================
+	
+	/*
+	 var hero = {}
+		function addProp(propname, propvalue){
+			hero[propname] = propvalue;
+		};
+		addProp("fname","Batman");
+		
+		console.log(hero.fname)
+		
+	 */
+		Function.prototype.addFun = function(funName, fun){
+			this.prototype[funName] = fun;
+		};
+		
+		var Boxer = function(){};
+			Boxer.addFun("add", function(elm){
+				elm.addEventListener("click", function(){
+					document.querySelector(".box").innerHTML += "<div></div>"
+				})
+			});
+			Boxer.addFun("remove", function(elm){
+				elm.addEventListener("click", function(){
+					var elm = document.querySelector(".box").firstChild;
+					document.querySelector(".box").removeChild(elm);
+				})
+			});
+		
+		var boxer = new Boxer();
+		window.onload = function(){
+			boxer.add(document.getElementById("addbox"));
+			boxer.remove(document.getElementById("removebox"));
+		}
+		
+		
+	</script>
+</head>
+<body>
+	<button id="addbox">Add Box</button>
+	<button id="removebox">Remove Box</button>
+	<div class="box"></div>
+</body>
+</html>

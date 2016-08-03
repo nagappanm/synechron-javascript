@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<title>Document</title>
+	<script>
+		var Hero = function(fn,ln){
+			this.fname = fn;
+			this.lname = ln;
+			/*
+			this.fullname = function(){
+				return this.fname+" "+this.lname;
+			}
+			 */
+		};
+		
+		Hero.prototype.fullname = function(){
+			return this.fname+" "+this.lname;
+		};
+		
+		var hero1 = new Hero("Bruce","Wayne");
+		console.log(hero1.fname);
+		console.log(hero1.lname);
+		console.log(hero1.fullname());
+		
+		console.log("=======================");
+		
+		var hero2 = new Hero("Clark","Kent");
+		console.log(hero2.fname);
+		console.log(hero2.lname);
+		console.log(hero2.fullname());
+		
+		console.log(hero1.fullname === hero2.fullname);
+	</script>
+</head>
+<body>
+	
+</body>
+</html>
