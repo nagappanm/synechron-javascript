@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<title>Document</title>
+	<style>
+		.boxer{
+			width: 150px;
+			height: 350px;
+			background-color: gray;
+			padding: 5px;
+			box-sizing: border-box;
+			margin: 5px;
+			border: 1px solid #333;
+			float: left;
+		}
+		.boxer img{
+			max-width: 100%;
+			display: block;
+		}
+		.boxer h1, h4{
+			margin: 2px;
+			text-align: center;
+			font-family: Arial;
+		}
+		.boxer h1{
+			font-size: 20px;
+		}
+		.boxer .container{
+			font-family: Arial;
+			font-size: 12px;
+			text-align: justify;
+			height: 130px;
+			overflow: auto;
+			background-color: #333;
+			color: silver;
+			box-sizing: border-box;
+			padding: 5px;
+		}
+		.box{
+			width: 800px;
+			height: 400px;
+			background-color: gray;
+			color: silver;
+			font-family: arial;
+			padding: 5px;
+			box-sizing: border-box;
+			margin: 10px auto;
+			overflow: auto;
+		}
+		button{
+			width: 500px;
+			display: block;
+			margin: 10px auto
+		}
+	</style>
+	<script>
+		var xhr = new XMLHttpRequest();
+			xhr.addEventListener("readystatechange", changeHandler)
+		function changeHandler(){
+			if(xhr.readyState == 4 && xhr.status == 200){
+				var data = JSON.parse(xhr.responseText);
+				for(var i = 0 ; i < data.heroes.length ; i++){
+					document.querySelector(".box").innerHTML += '<div class="boxer"><h1>'+data.heroes[i].hName+'</h1><img src="'+data.heroes[i].hPhoto+'" width="150"/><h4>'+data.heroes[i].hPhone+'</h4><div class="container">'+data.heroes[i].hDetails+'</div></div>';
+				}
+			}
+		}
+		window.addEventListener("load", function(){
+			document.getElementsByTagName("button")[0].addEventListener("click", clickHandler)
+		});
+		function clickHandler(){
+			xhr.open("GET","data/data.json",true);
+			xhr.send();
+		}
+	</script>
+</head>
+<body>
+		"hName":"Batman",
+		"hPhoto":"images/batman.jpg",
+		"hPhone":"123-456-789",
+		"hDetails
+	
+	<button>Click Me</button>
+	<div class="box"></div>
+<!--
+	
+	<div class="boxer"><h1></h1><img src="" width="150"/><h4></h4><div class="container"></div></div>
+-->
+</body>
+</html>

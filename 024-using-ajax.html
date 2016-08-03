@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<title>Document</title>
+	<style>
+		.box{
+			width: 500px;
+			height: 200px;
+			background-color: #333;
+			color: silver;
+			font-family: arial;
+			padding: 5px;
+			box-sizing: border-box;
+			margin: 10px auto;
+			overflow: auto;
+		}
+		button{
+			width: 500px;
+			display: block;
+			margin: 10px auto
+		}
+	</style>
+	<script>
+		var xhr = new XMLHttpRequest();
+			xhr.addEventListener("readystatechange", changeHandler)
+		function changeHandler(){
+			if(xhr.readyState == 4 && xhr.status == 200){
+				// document.querySelector(".box").innerHTML += xhr.responseText+"<hr/>";
+				document.querySelector(".box").innerHTML += xhr.responseXML+"<hr/>";
+				var heroes = xhr.responseXML.getElementsByTagName("hero");
+				for(var i = 0; i < heroes.length; i++){
+					// console.log(heroes[i].getElementsByTagName("hName")[0].innerHTML);
+					document.querySelector(".box").innerHTML += heroes[i].getElementsByTagName("hName")[0].innerHTML+"<br/>"
+				}
+			}
+		}
+		window.addEventListener("load", function(){
+			document.getElementsByTagName("button")[0].addEventListener("click", clickHandler)
+		});
+		function clickHandler(){
+			xhr.open("GET","data/data.xml",true);
+			xhr.send();
+		}
+	</script>
+</head>
+<body>
+	<button>Click Me</button>
+	<div class="box"></div>
+</body>
+</html>
