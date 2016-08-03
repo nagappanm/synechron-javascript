@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<title>Document</title>
+	<style>
+		#bodyTag{
+			background-color: gray;
+		}
+		#mainBox{
+			background-color: orange;
+			width: 600px;
+			height: 300px;
+			margin: auto;
+			border: 1px solid transparent;
+		}
+		#nestedBox{
+			background-color: red;
+			width: 300px;
+			height: 150px;
+			margin: 75px auto;
+			border: 1px solid transparent;
+		}
+		#nestedBox button{
+			width: 100px;
+			height: 50px;
+			margin: 50px auto;
+			display: block;
+		}
+	</style>
+	<script>
+		var validUser = null;
+		document.addEventListener("DOMContentLoaded", addEventHandlers);
+		function addEventHandlers(){
+			document.querySelector("#valid").addEventListener("change", changeHandler);
+			document.querySelector("#mainBox").addEventListener("mouseout", clickHandler);
+			document.querySelector("#mainBox").addEventListener("click", checkHandler, true);
+			document.querySelector("#nestedBox").addEventListener("click", clickHandler, true);
+			document.querySelector("#mainBox").addEventListener("click", clickHandler);
+			document.querySelector("#nestedBox").addEventListener("click", clickHandler);
+			document.querySelector("#clickBtn").addEventListener("click", clickHandler);
+			document.querySelector("#clickBtn").addEventListener("mouseout", clickHandler);
+		}
+		function changeHandler(evt){
+			validUser = evt.target.checked;
+			// console.log(validUser);
+		}
+		function clickHandler(evt){
+			document.querySelector("#log").innerHTML += evt.currentTarget.id+" | "+evt.type+"<br/>";
+		}
+		function checkHandler(evt){
+			if(!validUser){
+				document.querySelector("#log").innerHTML += evt.currentTarget.id+"<br/>";
+			}else{
+				evt.stopPropagation();
+				// evt.stopImmediatePropagation();
+				alert("event stopped");
+			}
+		}
+	</script>
+</head>
+<body id="bodyTag">
+	<div id="mainBox">
+		<div id="nestedBox">
+			<button id="clickBtn">Click Me</button>
+		</div>
+	</div>
+	<hr/>
+	<input type="checkbox" id="valid" />
+	<h4 id="log"></h4>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<title>Events</title>
+	<script>
+		document.addEventListener("DOMContentLoaded", function(){
+			document.querySelector("body").addEventListener("click", clickHandler);
+			document.querySelector("#boxer").addEventListener("click", function(){
+				document.querySelector("body").removeEventListener("click", clickHandler);
+			});
+			
+			/*
+			for(var i = 0; i < btns.length; i++){
+				//btns[i].addEventListener("mouseover", clickHandler);
+				//btns[i].addEventListener("mousedown", clickHandler);
+				//btns[i].addEventListener("mouseup", clickHandler);
+				btns[i].addEventListener("click", clickHandler);
+				//btns[i].addEventListener("mouseout", clickHandler);
+			}
+			 */
+		});
+		function clickHandler(evt){
+			if(evt.target !== document.body ){
+				document.querySelector("#log").innerHTML += evt.target.innerHTML+"<br/>";
+			};
+			// document.querySelector("#log").innerHTML += evt.type+"<br/>";
+		};
+	</script>
+</head>
+<body>
+	<button class="box">Click Me 1</button>
+	<button class="box">Click Me 2</button>
+	<button class="box">Click Me 3</button>
+	<button class="box">Click Me 4</button>
+	<hr/>
+	<button id="boxer">Stop Clicking</button>
+	<h1 id="log"></h1>
+</body>
+</html>

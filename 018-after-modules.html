@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<title>Document</title>
+	<style>
+		body>div{
+			width: 600px;
+			height: 400px;
+			background-color: #333;
+		}
+		body>div div{
+			width: 50px;
+			height: 50px;
+			background-color: orange;
+			float: left;
+			margin: 5px;
+		}
+	</style>
+	<script src="lib/jquery-3.1.0.js"></script>
+	<script src="script/elm.js"></script>
+	<script>
+	window.onload = function(){
+		document.querySelector("#addBtn").addEventListener("click", clickHandler)
+		document.querySelector("#intruderBtn").addEventListener("click", intrudeHandler)
+	};
+	function clickHandler(){
+		// document.getElementById("box").appendChild(elm.pubCreate("div"));
+		$("#box").append(elm.pubCreate("div"));
+	}
+	function intrudeHandler(){
+		elm.count = "Hello there";
+	}
+	</script>
+</head>
+<body>
+	<button id="addBtn">Add Box</button>
+	<button id="intruderBtn">Intruder</button>
+	<div id="box"></div>
+</body>
+</html>

@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<title>Document</title>
+	<style>
+		body>div{
+			width: 600px;
+			height: 400px;
+			background-color: #333;
+		}
+		body>div div{
+			width: 50px;
+			height: 50px;
+			background-color: orange;
+			float: left;
+			margin: 5px;
+		}
+	</style>
+	<script>
+	var elm = {
+		_count : 0,
+		genId : function(){
+			return "box"+(++this._count);
+		},
+		create : function(tagName,uid){
+			var el = document.createElement(tagName);
+			var eid = uid || this.genId();
+				el.innerHTML = eid;
+				return el;
+		}
+	};
+	window.onload = function(){
+		document.querySelector("#addBtn").addEventListener("click", clickHandler)
+		document.querySelector("#intruderBtn").addEventListener("click", intrudeHandler)
+	};
+	function clickHandler(){
+		document.getElementById("box").appendChild(elm.create("div"));
+	}
+	function intrudeHandler(){
+		elm._count = "Hello there";
+	}
+	</script>
+</head>
+<body>
+	<button id="addBtn">Add Box</button>
+	<button id="intruderBtn">Intruder</button>
+	<div id="box">
+		
+	</div>
+</body>
+</html>
